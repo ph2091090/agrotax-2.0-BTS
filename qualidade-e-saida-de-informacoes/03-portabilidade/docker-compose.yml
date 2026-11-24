@@ -1,0 +1,19 @@
+# Subir:  docker compose -f qualidade-e-saida-de-informacoes/03-portabilidade/docker-compose.yml up --build
+# Site e API em http://localhost:3000
+services:
+  agrotax:
+    build:
+      context: ../..
+      dockerfile: qualidade-e-saida-de-informacoes/03-portabilidade/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      TOKEN_ADMIN: ${TOKEN_ADMIN:-}        # defina para ativar o painel /admin.html
+      SAL_REGISTRO: ${SAL_REGISTRO:-}      # sal do hash de IP do registro de acesso
+      DIAS_RETENCAO_REGISTROS: ${DIAS_RETENCAO_REGISTROS:-90}
+    volumes:
+      - agrotax_dados:/dados
+    restart: unless-stopped
+
+volumes:
+  agrotax_dados:

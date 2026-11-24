@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>AgroTax — Painel de acessos</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script src="js/tema-inicio.js"></script>
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<header class="topo">
+  <a class="marca" href="./">Agro<span>Tax</span></a>
+  <div class="acoes-topo"><a class="botao botao-pequeno botao-claro" href="./">Voltar ao site</a></div>
+</header>
+
+<main class="conteiner secao">
+  <p class="sobretitulo">Área administrativa</p>
+  <h1 class="titulo">Painel de acessos e dados</h1>
+  <p class="subtitulo">Registro de acesso ao site e à API. Não guardamos o IP (apenas um hash) nem o conteúdo das requisições. Os registros são apagados após o prazo de retenção configurado.</p>
+
+  <form id="form-token" class="painel contato" novalidate>
+    <label><span>Token administrativo (<code>TOKEN_ADMIN</code> do arquivo .env)</span>
+      <input id="token" type="password" autocomplete="off" required></label>
+    <button class="botao botao-total" type="submit">Entrar</button>
+    <p class="erro" id="erro-admin" role="alert"></p>
+  </form>
+
+  <section id="painel-admin" hidden>
+    <div class="grade3" id="cartoes"></div>
+
+    <div class="exportar">
+      <label>Período:
+        <select id="periodo"><option value="1">1 dia</option><option value="7" selected>7 dias</option><option value="30">30 dias</option><option value="90">90 dias</option></select>
+      </label>
+      <button type="button" class="botao botao-pequeno botao-claro" data-csv="acessos">Baixar acessos (CSV)</button>
+      <button type="button" class="botao botao-pequeno botao-claro" data-csv="simulacoes">Baixar simulações (CSV)</button>
+      <button type="button" class="botao botao-pequeno botao-claro" data-csv="leads">Baixar contatos (CSV)</button>
+    </div>
+
+    <h2 class="titulo">Rotas mais acessadas</h2>
+    <div class="tabela-rolavel"><table class="tabela" id="tabela-rotas"></table></div>
+
+    <h2 class="titulo">Últimos 50 acessos</h2>
+    <div class="tabela-rolavel"><table class="tabela" id="tabela-ultimos"></table></div>
+  </section>
+</main>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

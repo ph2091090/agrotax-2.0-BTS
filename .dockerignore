@@ -1,0 +1,9 @@
+**/node_modules
+**/.env
+API/dados
+*.db
+*.db-*
+.git
+.vscode
+*.odt
+documento

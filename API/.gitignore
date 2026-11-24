@@ -1,0 +1,9 @@
+node_modules/
+.env
+dados/*
+!dados/.gitkeep
+*.db
+*.db-*
+
+# node-gyp
+build/
