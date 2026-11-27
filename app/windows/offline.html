@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>AGROTAX — conexão indisponível</title>
+<style>
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; display:grid; place-content:center; justify-items:center; gap:14px; padding:40px; text-align:center; background:#f6faf7; color:#17211b; font-family:Ubuntu,system-ui,sans-serif; }
+  .marca { width:76px; height:76px; border-radius:20px; display:grid; place-items:center; background:#2f8f5b; color:#fff; font-weight:700; }
+  h1 { margin:0; font-size:1.3rem; }
+  p { margin:0; max-width:480px; color:#5d6b63; font-size:.92rem; }
+  code { display:block; margin-top:8px; font-size:.78rem; color:#8a4b32; }
+  button { font:inherit; font-weight:600; color:#fff; background:#2f8f5b; border:0; border-radius:8px; padding:12px 22px; min-height:48px; cursor:pointer; }
+</style>
+</head>
+<body>
+  <div class="marca" aria-hidden="true">Agro</div>
+  <h1>Não foi possível conectar ao AgroTax</h1>
+  <p>O aplicativo usa a mesma infraestrutura do site. Verifique sua conexão, o servidor e tente novamente.</p>
+  <code id="detalhe"></code>
+  <button type="button" onclick="location.reload()">Tentar novamente</button>
+  <script>
+    var params = new URLSearchParams(location.search);
+    document.getElementById('detalhe').textContent = params.get('erro') || '';
+  </script>
+</body>
+</html>

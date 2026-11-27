@@ -1,0 +1,226 @@
+/* Camada de adaptação dos apps AgroTax. Usa exclusivamente as variáveis de cor do site original. */
+
+body.agrotax-app {
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+}
+
+body.agrotax-app input,
+body.agrotax-app select,
+body.agrotax-app textarea,
+body.agrotax-app button {
+  font-size: 16px;
+  min-height: 48px;
+}
+
+body.agrotax-app .botao {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 22px;
+}
+
+body.agrotax-app .idioma-opcao,
+body.agrotax-app .botao-tema {
+  min-height: 40px;
+}
+
+body.agrotax-app .tabela-rolavel {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Navegação por toque (Android) */
+.agrotax-tabbar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
+  background: var(--cor-superficie);
+  border-top: 1px solid var(--cor-borda);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, .08);
+}
+
+.agrotax-tabbar button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--cor-apagada);
+  display: grid;
+  place-items: center;
+  gap: 2px;
+  min-height: 56px;
+  padding: 4px 2px;
+  font-size: .72rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.agrotax-tabbar button[aria-current='true'] {
+  color: var(--cor-primaria-texto);
+  background: var(--cor-selo-fundo);
+}
+
+.agrotax-tabbar button:active {
+  transform: scale(.96);
+}
+
+.agrotax-tabbar .agrotax-tab-icone {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+body.agrotax-mobile .rodape {
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
+}
+
+body.agrotax-mobile .topo {
+  padding-top: calc(10px + env(safe-area-inset-top));
+}
+
+body.agrotax-mobile #aviso-toast.mostrar {
+  bottom: calc(88px + env(safe-area-inset-bottom));
+}
+
+/* Aviso de conexão */
+#agrotax-conexao {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 40;
+  padding: 8px 16px calc(8px + env(safe-area-inset-top));
+  text-align: center;
+  font-size: .82rem;
+  font-weight: 600;
+  color: #fff;
+  background: #a2522f;
+}
+
+#agrotax-conexao[hidden] {
+  display: none;
+}
+
+/* Carregamento e erro amigável */
+#agrotax-carregando,
+#agrotax-erro {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: 32px;
+  text-align: center;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+#agrotax-carregando[hidden],
+#agrotax-erro[hidden] {
+  display: none;
+}
+
+#agrotax-carregando .agrotax-marca,
+#agrotax-erro .agrotax-marca {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 20px;
+  background: var(--cor-primaria);
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.agrotax-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--cor-borda);
+  border-top-color: var(--cor-primaria);
+  border-radius: 50%;
+  animation: agrotax-girar .8s linear infinite;
+}
+
+@keyframes agrotax-girar {
+  to { transform: rotate(360deg); }
+}
+
+#agrotax-erro h2 { font-size: 1.2rem; }
+#agrotax-erro p { color: var(--cor-apagada); max-width: 420px; font-size: .92rem; }
+#agrotax-erro button { min-width: 180px; }
+
+/* Botões de ação nativa adicionados aos apps */
+.agrotax-acoes-app {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.agrotax-acoes-app button {
+  appearance: none;
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  background: var(--cor-superficie);
+  color: var(--cor-texto);
+  min-height: 38px;
+  padding: 6px 12px;
+  font: inherit;
+  font-size: .82rem;
+  cursor: pointer;
+}
+
+.agrotax-acoes-app button:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria-texto);
+}
+
+body.agrotax-desktop .conteiner {
+  width: min(1180px, 90%);
+}
+
+body.agrotax-desktop .secao {
+  padding-top: 56px;
+}
+
+body.agrotax-desktop .calculadora {
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+}
+
+body.agrotax-desktop .resultado {
+  min-height: 320px;
+}
+
+body.agrotax-desktop .tabela {
+  font-size: .92rem;
+}
+
+body.agrotax-desktop .tabela th,
+body.agrotax-desktop .tabela td {
+  padding: 10px 12px;
+}
+
+@media (max-width: 560px) {
+  body.agrotax-app .calculadora,
+  body.agrotax-app .grade3,
+  body.agrotax-app .passos {
+    gap: 14px;
+  }
+  body.agrotax-app .painel,
+  body.agrotax-app .resultado,
+  body.agrotax-app .cartao {
+    padding: 18px;
+    border-radius: 14px;
+  }
+  body.agrotax-app h1 { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agrotax-spinner { animation: none; }
+}

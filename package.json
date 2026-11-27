@@ -1,0 +1,19 @@
+{
+  "name": "agrotax-multiplataforma",
+  "version": "2.1.0",
+  "private": true,
+  "description": "AGROTAX WEB (original) + AGROTAX ANDROID + AGROTAX WINDOWS + AGROTAX LINUX/UBUNTU",
+  "scripts": {
+    "app:install": "npm --prefix app install",
+    "app:assets": "npm --prefix app run assets",
+    "app:sync": "npm --prefix app run sync",
+    "app:android": "npm --prefix app run android",
+    "app:android:build": "npm --prefix app run android:build",
+    "app:windows": "npm --prefix app run windows",
+    "app:windows:build": "npm --prefix app run windows:build",
+    "app:linux": "npm --prefix app run linux",
+    "app:linux:build": "npm --prefix app run linux:build",
+    "app:test": "npm --prefix app test",
+    "test": "npm --prefix API test"
+  }
+}

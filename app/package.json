@@ -1,0 +1,108 @@
+{
+  "name": "agrotax-apps",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Clients Android, Windows e Linux/Ubuntu do AgroTax (reaproveitam a API e o site originais)",
+  "homepage": "https://agrotax.onrender.com",
+  "author": "AgroTax",
+  "scripts": {
+    "assets": "node scripts/generate-assets.js",
+    "sync": "node scripts/sync-web.js && cap sync android",
+    "android": "npm run sync && cap open android",
+    "android:build": "node scripts/build-android.js",
+    "windows": "electron .",
+    "windows:build": "node scripts/build-windows.js",
+    "linux": "electron .",
+    "linux:build": "node scripts/build-linux.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "@capacitor/app": "^6.0.3",
+    "@capacitor/browser": "^6.0.6",
+    "@capacitor/camera": "^6.1.3",
+    "@capacitor/core": "^6.2.4",
+    "@capacitor/filesystem": "^6.0.4",
+    "@capacitor/local-notifications": "^6.1.3",
+    "@capacitor/network": "^6.0.4",
+    "@capacitor/preferences": "^6.0.4",
+    "@capacitor/share": "^6.0.4"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^6.2.4",
+    "@capacitor/cli": "^6.2.4",
+    "electron": "30.5.1",
+    "electron-builder": "24.13.3",
+    "resedit": "^2.0.3"
+  },
+  "main": "windows/main.js",
+  "build": {
+    "appId": "br.com.agrotax.desktop",
+    "productName": "AGROTAX",
+    "copyright": "Copyright (c) 2026 AgroTax",
+    "directories": {
+      "output": "build/windows",
+      "buildResources": "assets/icons"
+    },
+    "files": [
+      "package.json",
+      "assets/**/*",
+      "windows/**/*",
+      "shared/**/*",
+      "node_modules/**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,readme.md}",
+      "!**/node_modules/.bin",
+      "!**/*.map"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icons/agrotax.ico",
+      "signAndEditExecutable": false,
+      "legalTrademarks": "AgroTax"
+    },
+    "portable": {
+      "artifactName": "Agrotax.exe"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/linux",
+      "maintainer": "AgroTax",
+      "category": "Office",
+      "description": "Cliente Ubuntu do AgroTax",
+      "desktop": {
+        "Name": "AGROTAX",
+        "Comment": "Calculadora tributária AgroTax",
+        "Categories": [
+          "Office",
+          "Utility"
+        ]
+      },
+      "artifactName": "Agrotax-${version}-${arch}.${ext}"
+    },
+    "extraResources": [
+      {
+        "from": "shared/config/app.config.json",
+        "to": "config/app.config.json"
+      }
+    ]
+  }
+}

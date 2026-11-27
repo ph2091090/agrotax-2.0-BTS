@@ -1,0 +1,13 @@
+{
+  "appName": "AGROTAX",
+  "version": "2.1.0",
+  "environment": "production",
+  "productionUrl": "https://agrotax.onrender.com",
+  "developmentUrl": "http://localhost:3000",
+  "requestTimeoutMs": 20000,
+  "externalLinkAllowlist": [
+    "https://agrotax.onrender.com",
+    "https://github.com"
+  ],
+  "notes": "URL de producao extraida literalmente de README.md:9. Nao inventar outros endpoints."
+}

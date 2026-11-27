@@ -1,0 +1,23 @@
+{
+  "appId": "br.com.agrotax.app",
+  "appName": "AGROTAX",
+  "webDir": "shared/web",
+  "server": {
+    "url": "https://agrotax.onrender.com",
+    "androidScheme": "https",
+    "allowNavigation": [
+      "agrotax.onrender.com",
+      "localhost",
+      "127.0.0.1"
+    ],
+    "cleartext": false
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1600,
+      "backgroundColor": "#2f8f5b",
+      "androidSplashResourceName": "splash",
+      "showSpinner": false
+    }
+  }
+}
