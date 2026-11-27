@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+BASE="$(cd "$(dirname "$0")" && pwd)"
+exec "$BASE/Agrotax-Portable/agrotax-apps" --disable-gpu --disable-dev-shm-usage "$@"
