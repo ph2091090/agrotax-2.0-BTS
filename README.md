@@ -6,7 +6,7 @@ o regime e o tipo de operação, e recebe ICMS, IPI, PIS, COFINS, Funrural e SEN
 > ⚠️ Os resultados são **estimativas** e as alíquotas iniciais (`API/banco/dados_iniciais.sql`) são **exemplos**.
 > Não substituem a análise de um contador.
 
-Demo: https://agrotax.onrender.com
+Demo: https://agrotax-2-0-bts.onrender.com/
 
 ## Para a avaliação: qualidade do software e saída de informações
 
